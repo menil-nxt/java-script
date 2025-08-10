@@ -156,3 +156,121 @@ console.log(eligibleForLone);
 // Not (!)
 let AplicibleForLone = !eligibleForLone;
 console.log(AplicibleForLone)
+
+
+// Falsy ( it's falsy not false both are diffrent.)
+// undefined,null,0,false,'',not a number.
+// Anything that is not falsy -> truthy.
+// Short-circuiting
+
+let userColor = 'red';
+let selectedColor = 'blue';
+console.log(userColor || selectedColor);
+
+// 1 = 00000001
+// 2 = 00000010
+// 3 = 00000011 (Bitwise OR)
+// 4 = 00000000 (Bitwise AND)
+
+// read , write , execute
+//00000100,00000110,00000111
+
+const readPermission = 4;
+const writePermission = 2;
+const executePermission = 1;
+let myPermission = 0;
+
+myPermission = myPermission | writePermission;
+
+let message = (myPermission & readPermission) ? 'yes' : 'no';
+console.log(message);
+
+
+console.log(1 | 2); // (|) is a Bitwise OR.
+console.log(1 & 2); // (|) is a Bitwise AND.
+
+// Operator Precedence
+let no = 1+(2*3);
+console.log(no)
+
+// Exercise = swapping to variable
+
+let m = 'red';
+let n = 'blue';
+
+let c = m;
+m = n;
+n = c;
+
+console.log(m);
+console.log(n);
+
+
+// 2 types of conditional statement (1. if...else , 2. switch...case.)
+// 1. if...else
+ 
+// Hour
+// If hour is between 6am and 12pm: Good morning!
+// If it is between 12pm and 6pm: Good afternoon!
+// Otherwise: Good evening!
+
+
+let hour = 10;
+if (hour >= 6 && hour < 12){
+    console.log('Good Morning')
+}
+else if(hour >= 12 && hour < 18){
+    console.log('Good Afternoon')
+}
+else{
+    console.log('Good Evening')
+}
+
+
+// Switch....Case
+
+let role = 'guest';
+
+switch (role){
+    case 'guest':
+        console.log('Guest User');
+        break;
+    
+    case 'modrator':
+        console.log('Modrator User');
+        break;
+    
+    case 'agent':
+        console.log('Agent User');
+        break;
+    
+    default:
+        console.log('Unknown User');
+}
+
+// Loops -> For , While , Do...while ,  For...in  , For...of.
+
+// For loop
+
+for (let i = 0; i < 5; i++){
+    if (i % 2 !==0){
+        console.log('Hello World',i);
+    }
+}
+
+for (let i = 5; i >= 1; i--){
+    if (i % 2 !==0){
+        console.log('Hello World',i);
+    }
+}
+
+// while loop
+
+let i = 0;
+while(i <= 5){
+    if (i % 2 !==0){
+        console.log('Hello World',i);
+    }
+}
+
+
