@@ -336,6 +336,9 @@ circle.draw(); // draw method of a circle object.
 
 // Factory Functions(factory produce product as this factory fuction produce objects)
 
+// camel natation => oneTwoThreeFour    (first word is in small latters, after that every word first latter is capital letter.)
+// Pascal natation => OneTwoThreeFour (first latter of every word is uppercase)
+
 // logic for create multiple objects with one function call.
 function creatCircle(radius){
     return{
@@ -352,3 +355,52 @@ console.log(circle1);
 
 const circle2 = creatCircle(2);
 console.log(circle2);
+
+const circle3 = creatCircle(56);
+console.log(circle3);
+
+// example of factory function
+
+// function squre(height,width){
+//         return {
+//             height,
+//             width
+//         }
+// }
+
+
+// const calculate1 = squre(10,56);
+// console.log(calculate1);
+
+// const calculate2 = squre(45,67);
+// console.log(calculate2);
+
+
+// Constructor Functions
+
+// function Circle(redius){
+//     this.radius = radius;  // in constructor we use (this) keyword. inside this keyword we pass object propartis .
+//     this.draw = function(){
+//         console.log('menil');
+//     }
+// }
+
+// const menu = new Circle(); // here when you call a constructor function at that time you must write (new) keyword
+// console.log(menu);
+
+
+// Dynamic nature of object in java-script(we can add,delete(methos or proparties))
+
+const uno = {
+    radius: 1
+};
+
+uno.color = 'yellow';
+uno.draw = function(){
+    console.log('menil');
+}
+
+// delete uno.color;
+// delete uno.draw;
+
+console.log(uno);
