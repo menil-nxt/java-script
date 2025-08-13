@@ -266,11 +266,89 @@ for (let i = 5; i >= 1; i--){
 
 // while loop
 
+// let i = 0 ;
+// while(i <= 5){
+//     if (i % 2 !==0)
+//     console.log('Menil',i);
+//     i++;
+// }
+
+//Do...While loop
+
+// let i = 0;
+// do{if (i % 2 !==0)
+//       console.log('Menil',i);
+//       i++;
+// } while (i <= 5);
+
+// For...in loop (for this loop first of all we have one object)
+//for..in loop
+const agent = {
+    name : 'Menil',
+    age : 30
+};
+
+for (let key in agent)
+    console.log(key,agent[key]);
+
+// for...of loop
+const colors = ['red','blue','green'];
+for (let color of colors)
+    console.log(color);
+
+// Break and continue
+
+// Break keyword 
 let i = 0;
-while(i <= 5){
-    if (i % 2 !==0){
-        console.log('Hello World',i);
+while (i <= 10){
+    //if (i === 5) break; // with break keyword we break the loop 
+
+    if (
+        i === 6){
+        i++;
+        continue; // and with continue keyword we jump to next iteration means (skip that iteration)
+    }
+    console.log(i);
+    i++;
+}
+
+// Objects
+
+// It's called Object-Oriented Programming(OOP).
+// object oriented programming means (where we have program as a collection of objects that talk to each other to perfome some functionality) 
+
+const circle = {
+    radius: 1,     // object inside variable declaration (variable_name: value of that variable)
+    location: {     // Object inside another object.
+        x: 1,
+        y: 1        
+    },
+    isVisible: true,
+
+    // is a function as part an object we call that function method means (function name == method name)<--(inside object).
+    draw: function(){       // object inside declare function (function_name: function_keyword(parameter){"message"})
+        console.log('Hello Object inside Fuction')
     }
 }
 
+circle.draw(); // draw method of a circle object.
 
+
+// Factory Functions(factory produce product as this factory fuction produce objects)
+
+// logic for create multiple objects with one function call.
+function creatCircle(radius){
+    return{
+        radius,  // like (radius: radius);
+        draw(){  // like (function function_name(perameter){code}) -> function draw(){'message'}
+            console.log('menil');
+        }
+    }
+}
+
+// where you want create object for circle(like -> circle1,circle2) at that time call this function. 
+const circle1 = creatCircle(3);
+console.log(circle1); 
+
+const circle2 = creatCircle(2);
+console.log(circle2);
