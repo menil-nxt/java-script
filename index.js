@@ -635,8 +635,7 @@ console.log(num);
 
     // console.log(item);
 
-
-
+    
 // Reducing an array
 
 const nom = [1,-1,2,3];
@@ -648,6 +647,5 @@ const nom = [1,-1,2,3];
 const sum =nom.reduce(
     (accumulater, currentValue) => accumulater + currentValue
 )
-
 console.log(sum);
 
