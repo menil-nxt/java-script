@@ -72,32 +72,43 @@
 
 // Abstraction
 
-function Circle(radius){
-    this.radius = radius;               // this.(keyword -> create empty object)    radius(key of circle)   radius-value(value of key)
+// function Circle(radius){
+//     this.radius = radius;               // this.(keyword -> create empty object)    radius(key of circle)   radius-value(value of key)
 
-    let defaultLocation = { x : 1 , y : 1};
-    this.getdefaultLocation = function(){
-        return defaultLocation;
-    }
+//     let defaultLocation = { x : 1 , y : 1};
+//     this.getdefaultLocation = function(){
+//         return defaultLocation;
+//     }
+
+//     this.draw = function(){
+//         console.log('hello');
+//     }
+
+//     Object.defineProperty(this, 'defaultLocation',{
+//         get: function(){
+//             return defaultLocation;
+//         },
+//         set: function(value){
+//             if (!value.x || !value.y)
+//                 throw new Error('invalid values');
+//             defaultLocation = value;
+//         }
+//     });
+// }
+
+// const circle = new Circle(20); 
+// circle.defaultLocation = 1;         
+// circle.draw();
+
+ 
+// Inheritance
+
+function Circle(radius){
+    this.radius = radius;
 
     this.draw = function(){
         console.log('hello');
-    }
-
-    Object.defineProperty(this, 'defaultLocation',{
-        get: function(){
-            return defaultLocation;
-        },
-        set: function(value){
-            if (!value.x || !value.y)
-                throw new Error('invalid values');
-            defaultLocation = value;
-        }
-    });
+    };
 }
 
-const circle = new Circle(20); 
-circle.defaultLocation = 1;         
-circle.draw();
-
- 
+const another = new Circle(10);     //Circle is created every time new object(circle --> circleBase(prototype of circle) --> objectBase(Prototype of CircleBase)) --> called multilevel inheritance.
