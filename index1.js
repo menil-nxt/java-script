@@ -103,15 +103,15 @@
  
 // Inheritance
 
-function Circle(radius){
-    this.radius = radius;
+// function Circle(radius){
+//     this.radius = radius;
 
-    this.draw = function(){
-        console.log('hello');
-    };
-}
+//     this.draw = function(){
+//         console.log('hello');
+//     };
+// }
 
-const another = new Circle(10);     //Circle is created every time new object(circle --> circleBase(prototype of circle) --> objectBase(Prototype of CircleBase)) --> called multilevel inheritance.
+// const another = new Circle(10);     //Circle is created every time new object(circle --> circleBase(prototype of circle) --> objectBase(Prototype of CircleBase)) --> called multilevel inheritance.
 
 
 
@@ -166,3 +166,259 @@ const another = new Circle(10);     //Circle is created every time new object(ci
 
 
 // Prototypical inheritance
+// function shape (color){
+//     this.color = color;
+// }
+
+// shape.prototype.duplicate = function(){
+//     console.log('duplicate');
+// }
+// // Circle.prototype = object.create(object.prototype); after implimentation of this second line of code.
+// // Circle.prototype = Object.create(shape.prototype);      // now it's inherits from shapebase to circle base .
+// // Circle.prototype.constractor = Circle;
+
+// function extend(Child,Parent){
+//     Child.prototype = Object.create(Parent.prototype);
+//     Child.prototype.constractor = Child;
+// }
+
+// function Circle (radius , color) {
+//     shape.call(this, color);
+//      this.radius = radius;
+// }
+
+// extend(Circle,shape);
+
+// Circle.prototype.draw = function (){
+//     console.log('draw');
+// }
+
+// function Square(size) {
+//     this.size = size;
+// }
+
+// extend(Square,shape);
+
+// const s = new shape();
+// const c = new Circle(1 , 'red');
+
+
+// Method overriding                // Polymorphisum
+// function extend(Child,Parent){
+//      Child.prototype = Object.create(Parent.prototype);
+//      Child.prototype.constractor = Child;
+// }
+
+// function Shape(){
+// }
+
+// Shape.prototype.duplicate = function(){
+//      console.log('duplicate');
+// }
+
+// function Circle(){
+// }
+
+// extend(Circle,Shape);
+
+// Circle.prototype.duplicate = function(){        // method overriding is work here dublicate message is overriding to circle
+//     // Shape.prototype.duplicate.call(this);           
+//      console.log('duplicate circle');         
+// }
+
+// function Square(){
+// }
+
+// extend(Square,Shape);
+
+// Square.prototype.duplicate = function(){
+//      console.log('duplicate square');
+// }
+
+// const shapes= [
+//     new Circle(),
+//     new Square()
+// ];
+
+// for (let shape of shapes)
+//     shape.duplicate();
+
+
+// // Mixines
+
+// function mixin (target,...sources) {
+//     Object.assign(target,...sources);
+// }
+
+// const canEat = {
+//   eat: function() {
+//     this.hunger--,
+//     console.log('Eating')
+//   }  
+// };
+
+// const canWalk = {
+//     walk: function() {
+//         console.log('walking')
+//     }
+// };
+
+// const canSwim = {
+//     swim: function() {
+//         console.log('swim');
+//     }
+// };
+
+// function Person (){
+// }
+
+// mixin(Person.prototype,canEat,canWalk);
+
+// const person = new Person(); 
+// console.log(person);
+
+
+// function goldFish() {
+// }
+
+// mixin(goldFish.prototype,canEat,canSwim);
+
+// const goldfish = new goldFish();
+// console.log(goldfish);
+
+
+// ES6 Classes
+
+// simple code 
+
+// function Circle (radius){
+//     this. radius = radius;
+
+//     this.draw = function(){
+//         console.log('deaw');
+//     }
+// }
+
+
+// in ES6
+
+// class Circle {
+//     constructor(radius){
+//         this.radius = radius;
+//         this.move = function(){
+//         }
+//     }
+//     //instance method
+//     draw(){
+//         console.log('draw');
+//     }
+//     // static this keyword
+//     static parse(str){
+//         const radius = JSON.parse(str).radius;
+//         return new Circle(radius);
+//     }
+// }
+
+// const c = Circle.parse('{"radius": 1}');
+// console.log(c);
+
+//private members using symbols
+// const _radius = Symbol();
+// const _draw = Symbol();
+// class Circle {
+//     constructor(radius){
+//         this.radius = radius;
+//     }
+
+//     [_draw](){
+//         console.log('hello world')
+//     }
+// }
+
+// const c = new Circle(2);
+// const key = Object.getOwnPropertySymbols(c)[0];
+// console.log(c[key]);
+
+// Weakmaps
+
+// const _radius = new WeakMap();
+// const _move = new WeakMap();
+
+// class Circle {
+//     constructor(radius){
+//         _radius.set(this, radius);
+//         _move.set(this, () => {
+//             console.log('move',this);
+//         })
+//     }
+//     draw(){
+//         console.log(_radius.get(this));
+//         _move.get(this)();
+//         console.log('draw');
+//     }
+// }
+
+// const c = new Circle(10);
+
+
+// gatter and setter in ES6
+
+// const _radius = new WeakMap();
+// class Circle {
+//     constructor(radius){
+//         _radius.set(this, radius);    
+//     }
+
+//     get radius(){
+//         return _radius.get(this);
+//     }
+
+//     set radius(value){
+//         if (value <= 0) throw new Error(' invalid radius ');
+//         _radius.set(this,value);
+//     }
+// }
+// const c = new Circle(10);
+
+// inheritance in simple way.
+
+// class Shape {
+//     constructor(color){
+//         this.color = color;
+//     }
+
+//     move(){
+//         console.log('move');
+//     }
+// }
+
+// class Circle extends Shape{
+//     constructor(color,radius){
+//         super(color);
+//         this.radius = radius;
+//     }
+
+//     draw(){
+//         console.log('draw');
+//     }
+// }
+
+// const c = new Circle('yellow',20); 
+
+
+// method overriding in ES6
+
+class Shape {
+    move(){
+        console.log('move');
+    }
+}
+
+class Circle extends Shape {
+    move(){
+        super.move();
+        console.log('circle move');
+    }
+}
+
+const c = new Circle();
