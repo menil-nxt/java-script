@@ -408,17 +408,29 @@
 
 // method overriding in ES6
 
-class Shape {
-    move(){
-        console.log('move');
-    }
-}
+// class Shape {
+//     move(){
+//         console.log('move');
+//     }
+// }
 
-class Circle extends Shape {
-    move(){
-        super.move();
-        console.log('circle move');
-    }
-}
+// class Circle extends Shape {
+//     move(){
+//         super.move();
+//         console.log('circle move');
+//     }
+// }
 
-const c = new Circle();
+// const c = new Circle();
+
+
+// ES6 tooling
+
+// ES6 modules
+
+import {Circle} from './circle.js';
+
+const c = new Circle(10);
+c.draw();
+
+
