@@ -3,7 +3,6 @@ let fruit1 = ["mango", "banana", "ganesh"];
 let fruit2 = ["mango", "banana", "grepss"];
 let fruit3 = ["mango", "banana", "grepss"];
 
-let f1 = fruit.push("orange");
 console.log(fruit);
 
 // // Using length property

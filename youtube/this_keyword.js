@@ -79,7 +79,7 @@ console.log(this);
     // Bind Method
         
         let bind = method.bind(student1,"Banglore","Tmilnadu");
-        console.log(bind);
+        console.log(bind);    
         bind();
 
 
