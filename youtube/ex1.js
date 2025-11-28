@@ -16,3 +16,10 @@ console.log(fruit);
 // // Using at() method
 // const atWay = colors.at(-2);
 // console.log(atWay); // 'green'
+
+const id = 234453;
+let name = "menil";
+var lastName = "jotaniya";
+school = "mu";
+
+console.table([id, name, lastName, school]);
